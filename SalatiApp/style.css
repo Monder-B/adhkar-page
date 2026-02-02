@@ -1,0 +1,337 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    padding: 15px;
+}
+
+/* خلفية متحركة بسيطة */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    animation: moveBackground 20s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes moveBackground {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-50px, -50px); }
+}
+
+/* زخارف إسلامية */
+.decoration {
+    position: fixed;
+    font-size: 80px;
+    opacity: 0.15;
+    animation: float 6s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.moon {
+    top: 10%;
+    right: 10%;
+    animation-delay: 0s;
+}
+
+.mosque {
+    bottom: 15%;
+    left: 10%;
+    animation-delay: 2s;
+}
+
+.star1 {
+    top: 20%;
+    left: 15%;
+    font-size: 40px;
+    animation-delay: 1s;
+}
+
+.star2 {
+    bottom: 25%;
+    right: 20%;
+    font-size: 50px;
+    animation-delay: 3s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+/* الصندوق الرئيسي */
+.container {
+    position: relative;
+    z-index: 10;
+    background: white;
+    padding: 50px 60px;
+    border-radius: 25px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    animation: slideIn 0.8s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* أيقونة النجاح */
+.success-icon {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 25px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+    animation: scaleIn 0.6s ease-out 0.3s both;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* النصوص */
+h1 {
+    color: #2d3748;
+    font-size: 28px;
+    margin-bottom: 18px;
+    font-weight: 700;
+    animation: fadeIn 0.8s ease-out 0.5s both;
+    line-height: 1.4;
+}
+
+.message {
+    color: #4a5568;
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    animation: fadeIn 0.8s ease-out 0.7s both;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* خط فاصل مزخرف */
+.divider {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    margin: 30px auto;
+    border-radius: 2px;
+    animation: expandWidth 0.8s ease-out 0.9s both;
+}
+
+@keyframes expandWidth {
+    from { width: 0; }
+    to { width: 80px; }
+}
+
+/* رسالة إضافية */
+.sub-message {
+    color: #718096;
+    font-size: 16px;
+    font-style: italic;
+    animation: fadeIn 0.8s ease-out 1.1s both;
+}
+
+/* الزخارف الإسلامية حول الصندوق */
+.islamic-pattern {
+    position: absolute;
+    font-size: 30px;
+    opacity: 0.3;
+}
+
+.pattern-1 {
+    top: -15px;
+    right: -15px;
+    animation: rotate 20s linear infinite;
+}
+
+.pattern-2 {
+    bottom: -15px;
+    left: -15px;
+    animation: rotate 20s linear infinite reverse;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* تأثير البريق */
+.sparkle {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0;
+    animation: sparkle 2s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.sparkle:nth-child(1) {
+    top: 20%;
+    left: 30%;
+    animation-delay: 0s;
+}
+
+.sparkle:nth-child(2) {
+    top: 60%;
+    left: 70%;
+    animation-delay: 0.5s;
+}
+
+.sparkle:nth-child(3) {
+    top: 80%;
+    left: 20%;
+    animation-delay: 1s;
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1); }
+}
+
+/* تجاوب مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 35px 25px;
+        border-radius: 20px;
+        max-width: 100%;
+    }
+
+    .success-icon {
+        width: 75px;
+        height: 75px;
+        font-size: 38px;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    .message {
+        font-size: 16px;
+        line-height: 1.7;
+        margin-bottom: 20px;
+    }
+
+    .sub-message {
+        font-size: 14px;
+    }
+
+    .divider {
+        width: 60px;
+        margin: 20px auto;
+    }
+
+    .decoration {
+        font-size: 50px;
+    }
+
+    .moon {
+        top: 5%;
+        right: 5%;
+    }
+
+    .mosque {
+        bottom: 5%;
+        left: 5%;
+    }
+
+    .star1 {
+        top: 15%;
+        left: 10%;
+        font-size: 30px;
+    }
+
+    .star2 {
+        bottom: 20%;
+        right: 10%;
+        font-size: 35px;
+    }
+
+    .islamic-pattern {
+        font-size: 20px;
+    }
+}
+
+/* تجاوب مع الشاشات الصغيرة جداً */
+@media (max-width: 380px) {
+    .container {
+        padding: 30px 20px;
+    }
+
+    .success-icon {
+        width: 65px;
+        height: 65px;
+        font-size: 32px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .message {
+        font-size: 15px;
+    }
+
+    .sub-message {
+        font-size: 13px;
+    }
+
+    .decoration {
+        font-size: 40px;
+    }
+}
